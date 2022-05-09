@@ -1,0 +1,104 @@
+/**
+* @file 表格样式
+*/
+.table {
+  margin: 15px 25px;
+  width: 750px;
+}
+
+.table,
+.table th,
+.table td {
+  border: 1px solid #666;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px 15px;
+}
+
+.table .empty-table {
+  height: 200px;
+  text-align: center;
+}
+
+/** 表头*/
+.table-header-sort {
+  position: relative;
+  display: inline-block;
+  top: -18px;
+  left: -5px;
+  width: 15px;
+  cursor: pointer;
+
+  &-up {
+    position: absolute;
+    top: -1px;
+  }
+
+  &-down {
+    position: absolute;
+    top: 8px;
+  }
+
+  .active {
+    color: rgb(85, 155, 82);
+  }
+}
+
+/** 分页器*/
+.table-pagination {
+  width: 750px;
+  margin-left: 25px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.table-pagination > ul {
+  list-style: none;
+  font-size: 0;
+  background-color: rgb(85, 155, 82);
+  height: 40px;
+}
+
+.table-pagination > ul > li {
+  display: inline-block;
+  font-size: 14px;
+  color: white;
+  padding: 5px 2px;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  font-weight: bolder;
+}
+
+.table-pagination > ul > li.info {
+  cursor: default;
+}
+
+.table-pagination > ul > li:hover {
+  color:  orangered;
+  text-decoration: underline;
+}
+
+.table-pagination > ul > li.active {
+  color: black;
+}
+
+.table-pagination > ul > li.table-pagiantion_info:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.table-pagination > .table-pagiantion_set {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.inputPage {
+  width: 50px;;
+}

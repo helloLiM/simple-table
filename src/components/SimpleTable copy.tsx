@@ -2,6 +2,7 @@ import { defineComponent, reactive, watchEffect, ref } from "vue";
 import { TableProps, tableProps } from "./types";
 import type { TabCol, TabData } from "./interface";
 import * as _ from 'lodash'
+import { DATA, COLUMN } from "../static/data";
 import './style/table.less'
 
 export default defineComponent({
@@ -10,15 +11,15 @@ export default defineComponent({
   emits: ['change-page'],
   setup(props: TableProps, { attrs, emit, slots }) {
     let tableData = ref([]); //目前渲染的表格数据
+    let columnData = ref(COLUMN); //目前渲染的表格数据
     let defaultData = ref([]); //目前渲染的表格数据
-    let columnData = ref(_.cloneDeep(props.columns)); //表头数据
     let nowPage = ref<number>(1);
     let allPage = ref<number>();
     let inputPage = ref<number>();
     let pageLimit = ref<number>(10);
     let sortParam = ref({
       field: '',
-      direction: '',
+      direction: 'ASC',
     });
     const DIRECTION_MAP = {
       DESC: "",
@@ -85,7 +86,8 @@ export default defineComponent({
     // 排序监听
     watchEffect(
       () => {
-        defaultData.value = sortColumn(_.cloneDeep(props.tableData));
+        debugger
+        defaultData.value = sortColumn(_.cloneDeep(DATA));
       }
     );
 
@@ -93,6 +95,8 @@ export default defineComponent({
     watchEffect(
       () => {
         let start = pageLimit.value * (nowPage.value - 1);
+        debugger
+        //  return data.slice(start, start + pageParam.value.pageSize);
         tableData.value = defaultData.value.slice(start, start + pageLimit.value);
       }
     );
@@ -130,8 +134,7 @@ export default defineComponent({
           </thead>
           <tbody class="table-body">
                 {
-                  tableData.value.length ?
-                  (tableData.value.map((item: TabData, idx) => {
+                  tableData.value.map((item: TabData, idx) => {
                     return (
                       <tr class={'tr' + idx} mark={'row' + item.id}>
                         <td>{ item.id }</td>
@@ -140,15 +143,7 @@ export default defineComponent({
                         <td>{ item.age }</td>
                       </tr>
                     )
-                  })) : 
-                  (
-                    <tr>
-                      <td colspan={props.columns.length} class="empty-table">
-                        暂无数据
-                      </td>
-                    </tr>
-  
-                  )
+                  })
                 }
           </tbody>
         </table>
