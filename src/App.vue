@@ -1,20 +1,21 @@
 
 
 <template>
-  <!-- <SimpleTable /> -->
   <SimpleTable
     :table-data="tableList"
-    :columns="columns">
+    :columns="columns"
+    :show-header="true"
+    :sortParams="sortParams"
+    :pageLimit="pageLimit"
+    :pageJump="pageJump">
   </SimpleTable>
 </template>
 
 <script lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
 import SimpleTable from "./components/SimpleTable";
 import { defineComponent, ref } from "vue";
-import { DATA } from "./static/data";
+import { DATA, COLUMN } from "./static/data";
 import '../src/assets/icon/iconfont.css'
 
 export default defineComponent({
@@ -24,26 +25,20 @@ export default defineComponent({
   },
   setup() {
     const tableList = ref(DATA)
-    const columns = ref([{
-      key: 'id',
-      label: 'ID',
-      sortable: true,
-    },{
-      key: 'name',
-      label: '名称',
-      sortable: true,
-    },{
-      key: 'sex',
-      label: '性别',
-    },{
-      key: 'age',
-      label: '年龄',
-      sortable: true,
-    }]);
+    const columns = ref(COLUMN);
+    const sortParams = ref({
+      field: '',
+      direction: '',
+    });
+    const pageLimit = ref<number>(10);
+    const pageJump = ref<number>(1);
 
     return {
       tableList,
       columns,
+      sortParams,
+      pageLimit,
+      pageJump,
     };
   },
 })

@@ -9,29 +9,41 @@ test("mount component", () => {
   const wrapper:any = shallowMount(SimpleTable, {
     props: {
       tableData : DATA,
-      columns : COLUMN
+      columns : COLUMN,
+      hideHeader : false,
+      sortParams :  {
+        field: '',
+        direction: '',
+      },
+      pageLimit: 10
     },
   });
   expect(wrapper.html()).toMatchSnapshot();
   
 });
 
-// 数据为空
-test('empty body', async () => {
+// 隐藏表头
+test('test hidden table-header', async () => {
   const wrapper:any = shallowMount(SimpleTable, {
     props: {
       tableData : DATA,
-      columns : COLUMN
-    }
+      columns : COLUMN,
+      showHeader : true,
+      sortParams :  {
+        field: '',
+        direction: '',
+      },
+      pageLimit: 10
+    },
   });
-  expect(wrapper.find('.empty-table').exists() === false).toBe(true)
+  expect(wrapper.find('.table-header').exists() === true).toBe(true)
   await wrapper.setProps({
-    tableData: [],
+    showHeader : false,
   })
-  expect(wrapper.find('.empty-table').exists() === true).toBe(true)
+  expect(wrapper.find('.table-header').exists() === false).toBe(true)
 })
 
-// 点击排序
+// 排序,模拟传入排序字段
 test('test click sort', async () => {
   const sortData = DATA.slice(0, 2);
   const copyData = _.cloneDeep(sortData);
@@ -39,19 +51,53 @@ test('test click sort', async () => {
   const wrapper = shallowMount(SimpleTable, {
     props: {
       tableData : copyData,
-      columns : COLUMN
+      columns : COLUMN,
+      showHeader : true,
+      sortParams :  {
+        field: '',
+        direction: '',
+      },
+      pageLimit: 10
     },
   })
-  const sortColumn = wrapper.find('.table-header-sort')
   const body:any = wrapper.find('.table-body')
-  sortColumn.trigger('click')
-  await nextTick()
+  await wrapper.setProps({
+    sortParams :  {
+      field: 'id',
+      direction: 'ASC',
+    },
+  })
 
-  expect(body.html().includes('<tr class="tr0" mark="row0">')).toBe(true)
+  expect(body.html().includes('<tr class="table-tr tr0" mark="row0">')).toBe(true)
 
-  sortColumn.trigger('click')
-  await nextTick()
+  await wrapper.setProps({
+    sortParams :  {
+      field: 'id',
+      direction: 'DESC',
+    },
+  })
 
   const body1:any = wrapper.find('.table-body')
-  expect(body1.html().includes('<tr class="tr0" mark="row1">')).toBe(true)
+  expect(body1.html().includes('<tr class="table-tr tr0" mark="row1">')).toBe(true)
+})
+
+// 数据为空
+test('empty body', async () => {
+  const wrapper:any = shallowMount(SimpleTable, {
+    props: {
+      tableData : DATA,
+      columns : COLUMN,
+      hideHeader : false,
+      sortParams :  {
+        field: '',
+        direction: '',
+      },
+      pageLimit: 10
+    },
+  });
+  expect(wrapper.find('.empty-table').exists() === false).toBe(true)
+  await wrapper.setProps({
+    tableData: [],
+  })
+  expect(wrapper.find('.empty-table').exists() === true).toBe(true)
 })

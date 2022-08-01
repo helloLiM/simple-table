@@ -6,32 +6,29 @@
     [field: string] : any;
 }
 
-export interface TabCol {
-    key: string;
-
-    // 表头名称
-    label: string;
-
-    // 是否支持排序
-    sortable?: boolean;
-}
-
-
 export interface Column {
     key: string
     label: string
-    sort?: boolean
+    hidden?: boolean,
+    sortable?: boolean
   }
 export interface TabData {
     id: string;
-    name: string;
-    sex: string;
-    age: number;
-
-    // 是否支持排序
-    sortable?: boolean;
+    [key: string]: any;
 }
 
+export interface TableData {
+    [index: number]: any
+}
+
+export interface sortParams {
+
+    // 排序字段
+    field: string;
+
+    // 排序方向（升序、降序、默认排序）
+    direction: 'ASC' | 'DESC' | '';
+}
 
 
 

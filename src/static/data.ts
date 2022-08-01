@@ -1,15 +1,22 @@
 export const COLUMN = [{
     key: 'id',
     label: 'ID',
+    hidden: 'false',
+    sortable: true,
   },{
     key: 'name',
     label: '名称',
+    hidden: 'false',
+    sortable: true,
   },{
     key: 'sex',
     label: '性别',
+    hidden: 'false',
   },{
     key: 'age',
     label: '年龄',
+    hidden: 'true',
+    sortable: true,
   }]
 export const DATA = [
     {

@@ -1,5 +1,5 @@
 import { ExtractPropTypes, PropType } from "vue";
-import type { Column } from "./interface";
+import type { Column, sortParams } from "./interface";
 
 //  定义 Props
 export const tableProps = {
@@ -16,6 +16,29 @@ export const tableProps = {
   columns: {
     type: Array as PropType<Column[]>,
     default: []
+  },
+
+  sortParams: {
+    type: Object as PropType<sortParams>,
+    default: {
+      field: '',
+      direction: '',
+    }
+  },
+
+  pageLimit: {
+    type: Number,
+    default: 10
+  },
+
+  pageJump: {
+    type: Number,
+    default: 1
+  },
+
+  showHeader: {
+    type: Boolean,
+    default: true,
   }
 } as const;
 

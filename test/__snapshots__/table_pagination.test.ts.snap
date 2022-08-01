@@ -1,0 +1,14 @@
+// Vitest Snapshot v1
+
+exports[`mount component 1`] = `
+"<div class=\\"table-pagination\\">
+  <ul>
+    <li class=\\"table-pagination_prev\\">上一页</li>
+    <li class=\\"table-pagination_next\\">下一页</li>
+    <li class=\\"table-pagiantion_info\\">共 33 条</li>
+    <li class=\\"table-pagiantion_info\\">第 1 页</li>
+    <li class=\\"table-pagiantion_info\\">共 4 页</li>
+    <li class=\\"table-pagiantion_info\\"><input class=\\"inputPage\\" type=\\"number\\"><span class=\\"table-pagiantion_jump\\">跳转</span></li>
+  </ul>
+</div>"
+`;

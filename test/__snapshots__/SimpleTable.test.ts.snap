@@ -1,70 +1,68 @@
 // Vitest Snapshot v1
 
 exports[`mount component 1`] = `
-"<div>
+"<div hideheader=\\"false\\">
   <table class=\\"table\\">
-    <thead class=\\"table-header\\">
-      <th>ID<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
-      <th>名称<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
-      <th>性别<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
-      <th>年龄<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
-    </thead>
+    <table-header-stub columns=\\"[object Object],[object Object],[object Object],[object Object]\\" sortparams=\\"[object Object]\\" changesort=\\"(field, direct) => {
+      props.sortParams.field = field;
+      props.sortParams.direction = direct;
+    }\\" class=\\"table-header\\"></table-header-stub>
     <tbody class=\\"table-body\\">
-      <tr class=\\"tr0\\" mark=\\"row0\\">
+      <tr class=\\"table-tr tr0\\" mark=\\"row0\\">
         <td>0</td>
         <td>a</td>
         <td>male</td>
         <td>12</td>
       </tr>
-      <tr class=\\"tr1\\" mark=\\"row1\\">
+      <tr class=\\"table-tr tr1\\" mark=\\"row1\\">
         <td>1</td>
         <td>b</td>
         <td>female</td>
         <td>64</td>
       </tr>
-      <tr class=\\"tr2\\" mark=\\"row2\\">
+      <tr class=\\"table-tr tr2\\" mark=\\"row2\\">
         <td>2</td>
         <td>c</td>
         <td>male</td>
         <td>5</td>
       </tr>
-      <tr class=\\"tr3\\" mark=\\"row3\\">
+      <tr class=\\"table-tr tr3\\" mark=\\"row3\\">
         <td>3</td>
         <td>d</td>
         <td>female</td>
         <td>21</td>
       </tr>
-      <tr class=\\"tr4\\" mark=\\"row4\\">
+      <tr class=\\"table-tr tr4\\" mark=\\"row4\\">
         <td>4</td>
         <td>e</td>
         <td>female</td>
         <td>75</td>
       </tr>
-      <tr class=\\"tr5\\" mark=\\"row5\\">
+      <tr class=\\"table-tr tr5\\" mark=\\"row5\\">
         <td>5</td>
         <td>f</td>
         <td>male</td>
         <td>25</td>
       </tr>
-      <tr class=\\"tr6\\" mark=\\"row6\\">
+      <tr class=\\"table-tr tr6\\" mark=\\"row6\\">
         <td>6</td>
         <td>g</td>
         <td>male</td>
         <td>42</td>
       </tr>
-      <tr class=\\"tr7\\" mark=\\"row8\\">
+      <tr class=\\"table-tr tr7\\" mark=\\"row8\\">
         <td>8</td>
         <td>h</td>
         <td>female</td>
         <td>13</td>
       </tr>
-      <tr class=\\"tr8\\" mark=\\"row9\\">
+      <tr class=\\"table-tr tr8\\" mark=\\"row9\\">
         <td>9</td>
         <td>wv</td>
         <td>female</td>
         <td>56</td>
       </tr>
-      <tr class=\\"tr9\\" mark=\\"row10\\">
+      <tr class=\\"table-tr tr9\\" mark=\\"row10\\">
         <td>10</td>
         <td>ki</td>
         <td>male</td>
@@ -72,15 +70,8 @@ exports[`mount component 1`] = `
       </tr>
     </tbody>
   </table>
-  <div class=\\"table-pagination\\">
-    <ul>
-      <li class=\\"table-pagination_prev\\">上一页</li>
-      <li class=\\"table-pagination_next\\">下一页</li>
-      <li class=\\"table-pagiantion_info\\">共 33 条</li>
-      <li class=\\"table-pagiantion_info\\">第 1 页</li>
-      <li class=\\"table-pagiantion_info\\">共 4 页</li>
-      <li class=\\"table-pagiantion_info\\"><input class=\\"inputPage\\" type=\\"number\\"><span>跳转</span></li>
-    </ul>
-  </div>
+  <table-pagination-stub alldata=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" pagelimit=\\"10\\" changedata=\\"function (start, end) {
+      tableData.value = allData.value.slice(start, end);
+    }\\" pagejump=\\"1\\"></table-pagination-stub>
 </div>"
 `;

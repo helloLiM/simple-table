@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`mount component 1`] = `
+"<thead class=\\"table-header\\">
+  <th>ID<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
+  <th>名称<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
+  <th>性别</th>
+  <th>年龄<span class=\\"table-header-sort\\"><i class=\\"iconfont icon-caret-up table-header-sort-up\\"></i><i class=\\"iconfont icon-caret-down table-header-sort-down\\"></i></span></th>
+</thead>"
+`;
